@@ -1,6 +1,6 @@
 {
-	"name": "p-limit",
-	"version": "5.0.0",
+	"name": "@lincy/p-limit",
+	"version": "5.0.1",
 	"description": "Run multiple promise-returning & async functions with limited concurrency",
 	"license": "MIT",
 	"repository": "sindresorhus/p-limit",
@@ -13,19 +13,23 @@
 	"type": "module",
 	"exports": {
 		"types": "./index.d.ts",
-		"default": "./index.js"
+		"default": "./src/index.js"
 	},
 	"imports": {
 		"#async_hooks": {
 			"node": "async_hooks",
-			"default": "./async-hooks-stub.js"
+			"default": "./src/async-hooks-stub.js"
 		}
 	},
 	"engines": {
 		"node": ">=18"
 	},
 	"scripts": {
-		"test": "xo && ava && tsd"
+		"postpublish": "simple-open-url https://npmmirror.com/package/@lincy/utils",
+		"test": "xo && ava && tsd",
+		"prepublishOnly": "npm run build",
+		"release": "bumpp --commit --push --tag && npm publish --access public",
+		"build": "rollup -c"
 	},
 	"files": [
 		"index.js",
@@ -53,12 +57,21 @@
 		"yocto-queue": "^1.0.0"
 	},
 	"devDependencies": {
+		"@rollup/plugin-node-resolve": "^15.2.3",
 		"ava": "^5.3.1",
+		"bumpp": "^9.2.1",
 		"delay": "^6.0.0",
 		"in-range": "^3.0.0",
 		"random-int": "^3.0.0",
+		"rollup": "^4.9.1",
+		"rollup-plugin-node-builtins": "^2.1.2",
+		"rollup-plugin-polyfill-node": "^0.13.0",
+		"simple-open-url": "^3.0.1",
 		"time-span": "^5.1.0",
 		"tsd": "^0.29.0",
 		"xo": "^0.56.0"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/"
 	}
 }
