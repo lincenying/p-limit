@@ -25,16 +25,17 @@
 		"node": ">=18"
 	},
 	"scripts": {
-		"postpublish": "simple-open-url https://npmmirror.com/package/@lincy/utils",
+		"postpublish": "simple-open-url https://npmmirror.com/package/@lincy/p-limit",
 		"test": "xo && ava && tsd",
 		"prepublishOnly": "npm run build",
 		"release": "bumpp --commit --push --tag && npm publish --access public",
 		"build": "rollup -c"
 	},
 	"files": [
-		"index.js",
+		"src/index.js",
 		"index.d.ts",
-		"async-hooks-stub.js"
+		"src/async-hooks-stub.js",
+		"dist"
 	],
 	"keywords": [
 		"promise",
