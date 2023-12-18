@@ -18,7 +18,7 @@
 	"imports": {
 		"#async_hooks": {
 			"node": "async_hooks",
-			"default": "./src/async-hooks-stub.js"
+			"default": "./async-hooks-stub.js"
 		}
 	},
 	"engines": {
@@ -32,9 +32,9 @@
 		"build": "rollup -c"
 	},
 	"files": [
-		"src/index.js",
+		"index.js",
 		"index.d.ts",
-		"src/async-hooks-stub.js",
+		"async-hooks-stub.js",
 		"dist"
 	],
 	"keywords": [
